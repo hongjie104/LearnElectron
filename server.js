@@ -9,22 +9,22 @@ import config from './webpack.config.development';
 
 const app = express();
 const compiler = webpack(config);
-const PORT = 3000;
+const PORT = 3630;
 
 app.use(webpackDevMiddleware(compiler, {
-  publicPath: config.output.publicPath,
-  stats: {
-    colors: true
-  }
+	publicPath: config.output.publicPath,
+	stats: {
+		colors: true
+	}
 }));
 
 app.use(webpackHotMiddleware(compiler));
 
 app.listen(PORT, 'localhost', err => {
-  if (err) {
-    console.error(err);
-    return;
-  }
+	if (err) {
+		console.error(err);
+		return;
+	}
 
-  console.log(`Listening at http://localhost:${PORT}`);
+	console.log(`Listening at http://localhost:${PORT}`);
 });
